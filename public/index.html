@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+  <head>
+    <meta charset="UTF-8">
+    <title>Todo Application</title>
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-controller="TodoListController as todoList">
+      <h1 ng-click="print()">Todo's</h1>
+      <input ng-model="newTodo" type="text" placeholder="ex: Call mom"/>
+      <button ng-click="addTodo()">Add Todo</button>
+      <ul>
+        <li ng-cloak ng-repeat="todo in todos">
+          <div>
+            <label><button ng-click="completedTodo(todo)">Complete</button> {{todo.todo}}</label>
+          </div>
+        </li>
+      </ul>
+
+      <form action="/api/todos" method="POST">
+
+      </form>
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+  </body>
+</html>
